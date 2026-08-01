@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 
 type Metric = {
@@ -11,11 +10,9 @@ type Metric = {
 }
 
 /** Demo values for the Incremental Revenue / ROAS card */
-const INCREMENTAL_REVENUE = 850_000
-const CREATOR_REVENUE_PER_CUSTOMER = 310
-const AVERAGE_CUSTOMER_REVENUE = 140
-const CREATOR_CUSTOMERS = 5_000
-const DEFAULT_AMBASSADOR_SPEND = 500_000
+const INCREMENTAL_REVENUE = 400_000
+const AMBASSADOR_SPEND = 500_000
+const INCREMENTAL_ROAS = INCREMENTAL_REVENUE / AMBASSADOR_SPEND
 const ANALYSIS_WINDOW_LABEL = '12-month window, Jan 1, 2025 – Dec 31, 2025'
 
 const metrics: Metric[] = [
@@ -91,30 +88,16 @@ const currencyCompact = (n: number) =>
     minimumFractionDigits: 2,
   }).format(n)
 
-const integer = (n: number) =>
-  new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(n)
-
 const formatMetric = (value: number, format: Metric['format']) => {
   if (format === 'currency') return currency(value)
   if (format === 'percent') return `${value}%`
   return value.toFixed(value % 1 === 0 ? 0 : 2)
 }
 
-const parseSpendInput = (value: string) => {
-  const digits = value.replace(/[^\d.]/g, '')
-  if (!digits) return 0
-  return Number(digits)
-}
-
 const CONTACT_EMAIL = 'hello@influ-sight.com'
 
 function App() {
-  const [ambassadorSpend, setAmbassadorSpend] = useState(DEFAULT_AMBASSADOR_SPEND)
-  const [spendDraft, setSpendDraft] = useState(String(DEFAULT_AMBASSADOR_SPEND))
-
-  const incrementalRoas =
-    ambassadorSpend > 0 ? INCREMENTAL_REVENUE / ambassadorSpend : 0
-  const isPositiveRoas = incrementalRoas >= 1
+  const isPositiveRoas = INCREMENTAL_ROAS >= 1
 
   return (
     <div className="page">
@@ -166,68 +149,22 @@ function App() {
                   {isPositiveRoas ? '↑' : '↓'}
                 </span>
               </div>
-              <p className="roas-value">
-                {ambassadorSpend > 0 ? `${incrementalRoas.toFixed(1)}x` : '—'}
-              </p>
+              <p className="roas-value">{INCREMENTAL_ROAS.toFixed(1)}x</p>
               <p className="roas-caption">
-                {ambassadorSpend > 0
-                  ? `${currencyCompact(incrementalRoas)} back for every $1 spent`
-                  : 'Enter ambassador spend to calculate ROAS'}
+                {currencyCompact(INCREMENTAL_ROAS)} back for every $1 spent
               </p>
-              <label className="spend-field">
-                <span>Ambassador spend</span>
-                <div className="spend-input-wrap">
-                  <span aria-hidden="true">$</span>
-                  <input
-                    type="text"
-                    inputMode="decimal"
-                    value={spendDraft}
-                    onChange={(event) => {
-                      const next = event.target.value.replace(/[^\d.]/g, '')
-                      setSpendDraft(next)
-                      setAmbassadorSpend(parseSpendInput(next))
-                    }}
-                    onBlur={() => {
-                      setSpendDraft(
-                        ambassadorSpend > 0 ? String(Math.round(ambassadorSpend)) : '',
-                      )
-                    }}
-                    aria-describedby="spend-help"
-                  />
-                </div>
-                <small id="spend-help">
-                  Manually entered — not pulled from Shopify
-                </small>
-              </label>
-              <p className="roas-formula">
-                Incremental revenue ÷ ambassador spend = incremental ROAS
+              <p className="spend-static">
+                Ambassador spend: {currency(AMBASSADOR_SPEND)}
               </p>
             </div>
           </div>
 
-          <div className="hero-formula" aria-label="Incremental revenue calculation">
-            <div>
-              <span>Creator revenue / customer</span>
-              <strong>{currency(CREATOR_REVENUE_PER_CUSTOMER)}</strong>
-            </div>
-            <span className="calculation-symbol">−</span>
-            <div>
-              <span>Average customer revenue</span>
-              <strong>{currency(AVERAGE_CUSTOMER_REVENUE)}</strong>
-            </div>
-            <span className="calculation-symbol">×</span>
-            <div>
-              <span>Creator customers</span>
-              <strong>{integer(CREATOR_CUSTOMERS)}</strong>
-            </div>
-          </div>
+          <p className="roas-bridge">
+            Measuring exact ROI is hard. A single ROAS number doesn&apos;t capture
+            the full picture. Here&apos;s how ambassador-acquired customers compare
+            to your average customer on the metrics that matter long term.
+          </p>
         </section>
-
-        <p className="roas-bridge">
-          Measuring exact ROI is hard. A single ROAS number doesn&apos;t capture
-          the full picture. Here&apos;s how ambassador-acquired customers compare
-          to your average customer on the metrics that matter long term.
-        </p>
 
         <section className="section comparison-section" aria-labelledby="comparison-heading">
           <div className="section-heading">
