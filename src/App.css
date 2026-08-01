@@ -204,8 +204,8 @@
 }
 
 .roas-panel.is-negative {
-  border-color: color-mix(in srgb, #b45309 35%, var(--border));
-  background: color-mix(in srgb, #b45309 8%, var(--surface));
+  border-color: color-mix(in srgb, #b91c1c 32%, var(--border));
+  background: color-mix(in srgb, #b91c1c 7%, var(--surface));
 }
 
 .roas-panel-header {
@@ -232,7 +232,7 @@
 .roas-panel.is-negative .roas-label,
 .roas-panel.is-negative .roas-value,
 .roas-panel.is-negative .roas-direction {
-  color: #b45309;
+  color: #b91c1c;
 }
 
 .roas-direction {
@@ -363,8 +363,20 @@
   font-size: 1rem;
 }
 
+.roas-bridge {
+  margin: 4px 2px 0;
+  max-width: 46rem;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
 .section {
   padding: 26px 0 0;
+}
+
+.comparison-section {
+  padding-top: 18px;
 }
 
 .section-heading {

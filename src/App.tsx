@@ -223,10 +223,16 @@ function App() {
           </div>
         </section>
 
-        <section className="section" aria-labelledby="comparison-heading">
+        <p className="roas-bridge">
+          Measuring exact ROI is hard. A single ROAS number doesn&apos;t capture
+          the full picture. Here&apos;s how ambassador-acquired customers compare
+          to your average customer on the metrics that matter long term.
+        </p>
+
+        <section className="section comparison-section" aria-labelledby="comparison-heading">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">Apples-to-apples performance</p>
+              <p className="eyebrow">Supporting evidence</p>
               <h2 id="comparison-heading">Customer quality comparison</h2>
             </div>
             <span className="matched-badge">Same acquisition period · 12-month window</span>
@@ -236,8 +242,8 @@ function App() {
               <thead>
                 <tr>
                   <th scope="col">Metric</th>
-                  <th scope="col">Creator-acquired</th>
-                  <th scope="col">BAU customers</th>
+                  <th scope="col">Ambassador-acquired</th>
+                  <th scope="col">Average customer</th>
                   <th scope="col">Difference</th>
                 </tr>
               </thead>
@@ -269,9 +275,9 @@ function App() {
             </table>
           </div>
           <p className="table-note">
-            BAU includes non-creator new customers acquired during the same
-            period. Repeat-purchase AOV only includes customers who returned;
-            repeat revenue per customer accounts for the full cohort.
+            Average customer includes non-ambassador new customers acquired
+            during the same period. Repeat-purchase AOV only includes customers
+            who returned; repeat revenue per customer accounts for the full cohort.
           </p>
         </section>
 
@@ -287,15 +293,17 @@ function App() {
               <span className="halo-value">{haloLift.toFixed(1)}×</span>
               <strong>more non-promoted product revenue per customer</strong>
               <p>
-                Creator-acquired customers generated {currency(productHalo.creatorRevenuePerCustomer)}
-                {' '}per customer outside promoted products, compared with{' '}
-                {currency(productHalo.bauRevenuePerCustomer)} for BAU.
+                Ambassador-acquired customers generated{' '}
+                {currency(productHalo.creatorRevenuePerCustomer)} per customer
+                outside promoted products, compared with{' '}
+                {currency(productHalo.bauRevenuePerCustomer)} for the average
+                customer.
               </p>
             </div>
             <div className="halo-bars" aria-label="Non-promoted revenue comparison">
               <div className="bar-row">
                 <div className="bar-label">
-                  <span>Creator-acquired</span>
+                  <span>Ambassador-acquired</span>
                   <strong>{currency(productHalo.creatorRevenuePerCustomer)}</strong>
                 </div>
                 <div className="bar-track">
@@ -304,7 +312,7 @@ function App() {
               </div>
               <div className="bar-row">
                 <div className="bar-label">
-                  <span>BAU customers</span>
+                  <span>Average customer</span>
                   <strong>{currency(productHalo.bauRevenuePerCustomer)}</strong>
                 </div>
                 <div className="bar-track">
@@ -315,11 +323,17 @@ function App() {
             <dl className="halo-stats">
               <div>
                 <dt>Cross-category purchase rate</dt>
-                <dd>{productHalo.creatorCrossCategoryRate}% <span>vs {productHalo.bauCrossCategoryRate}% BAU</span></dd>
+                <dd>
+                  {productHalo.creatorCrossCategoryRate}%{' '}
+                  <span>vs {productHalo.bauCrossCategoryRate}% average</span>
+                </dd>
               </div>
               <div>
                 <dt>Distinct products purchased</dt>
-                <dd>{productHalo.creatorProductsPurchased} <span>vs {productHalo.bauProductsPurchased} BAU</span></dd>
+                <dd>
+                  {productHalo.creatorProductsPurchased}{' '}
+                  <span>vs {productHalo.bauProductsPurchased} average</span>
+                </dd>
               </div>
             </dl>
           </div>
