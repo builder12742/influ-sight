@@ -94,6 +94,16 @@ const formatMetric = (value: number, format: Metric['format']) => {
   return value.toFixed(value % 1 === 0 ? 0 : 2)
 }
 
+const formatDifference = (metric: Metric) => {
+  if (metric.difference === 'points') {
+    return `+${metric.creator - metric.bau} pts`
+  }
+  const percentageLift = Math.round(
+    ((metric.creator - metric.bau) / metric.bau) * 100,
+  )
+  return `+${percentageLift}%`
+}
+
 const CONTACT_EMAIL = 'hello@influ-sight.com'
 
 function App() {
@@ -174,7 +184,7 @@ function App() {
             </div>
             <span className="matched-badge">Same acquisition period · 12-month window</span>
           </div>
-          <div className="table-wrap metric-table">
+          <div className="table-wrap metric-table desktop-only">
             <table>
               <thead>
                 <tr>
@@ -185,16 +195,7 @@ function App() {
                 </tr>
               </thead>
               <tbody>
-                {metrics.map((metric) => {
-                  const percentageLift = Math.round(
-                    ((metric.creator - metric.bau) / metric.bau) * 100,
-                  )
-                  const difference =
-                    metric.difference === 'points'
-                      ? `+${metric.creator - metric.bau} pts`
-                      : `+${percentageLift}%`
-
-                  return (
+                {metrics.map((metric) => (
                   <tr key={metric.label}>
                     <th scope="row">
                       <span className="metric-name">{metric.label}</span>
@@ -203,13 +204,38 @@ function App() {
                     <td className="creator-value">
                       <strong>{formatMetric(metric.creator, metric.format)}</strong>
                     </td>
-                    <td><strong>{formatMetric(metric.bau, metric.format)}</strong></td>
-                    <td><span className="lift-pill">{difference}</span></td>
+                    <td>
+                      <strong>{formatMetric(metric.bau, metric.format)}</strong>
+                    </td>
+                    <td>
+                      <span className="lift-pill">{formatDifference(metric)}</span>
+                    </td>
                   </tr>
-                  )
-                })}
+                ))}
               </tbody>
             </table>
+          </div>
+
+          <div className="metric-cards mobile-only" aria-label="Customer quality metrics">
+            {metrics.map((metric) => (
+              <article key={metric.label} className="metric-card">
+                <header>
+                  <h3>{metric.label}</h3>
+                  <p>{metric.description}</p>
+                </header>
+                <dl className="metric-card-values">
+                  <div>
+                    <dt>Ambassador-acquired</dt>
+                    <dd>{formatMetric(metric.creator, metric.format)}</dd>
+                  </div>
+                  <div>
+                    <dt>Average customer</dt>
+                    <dd>{formatMetric(metric.bau, metric.format)}</dd>
+                  </div>
+                </dl>
+                <span className="lift-pill">{formatDifference(metric)}</span>
+              </article>
+            ))}
           </div>
           <p className="table-note">
             Average customer includes non-ambassador new customers acquired
