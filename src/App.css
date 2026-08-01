@@ -226,8 +226,7 @@
   letter-spacing: -0.03em;
 }
 
-.matched-badge,
-.context-note {
+.matched-badge {
   padding: 6px 10px;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -235,68 +234,6 @@
   color: var(--muted);
   font-size: 0.72rem;
   font-weight: 500;
-}
-
-.cohort-context {
-  padding-top: 18px;
-}
-
-.cohort-cards {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.cohort-card {
-  padding: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--surface);
-}
-
-.cohort-card.creator-card {
-  border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
-  background: color-mix(in srgb, var(--accent) 4%, var(--surface));
-}
-
-.cohort-kicker,
-.cohort-card > div > strong {
-  display: block;
-}
-
-.cohort-kicker {
-  margin-bottom: 4px;
-  color: var(--muted);
-  font-size: 0.68rem;
-}
-
-.cohort-card > div > strong {
-  color: var(--ink);
-  font-size: 1.02rem;
-}
-
-.cohort-card dl {
-  margin: 0;
-  display: flex;
-  gap: 24px;
-}
-
-.cohort-card dt {
-  margin-bottom: 3px;
-  color: var(--muted);
-  font-size: 0.65rem;
-}
-
-.cohort-card dd {
-  margin: 0;
-  color: var(--ink);
-  font-size: 0.83rem;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
 }
 
 .table-wrap {
@@ -664,20 +601,6 @@ tbody td strong {
   .section-heading {
     align-items: flex-start;
     flex-direction: column;
-  }
-
-  .cohort-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .cohort-card {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .cohort-card dl {
-    width: 100%;
   }
 
   .halo-panel {

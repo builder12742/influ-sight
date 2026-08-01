@@ -9,17 +9,7 @@ type Metric = {
   difference?: 'points'
 }
 
-const creatorCohort = {
-  customers: 428,
-  revenue: 82176,
-  orders: 642,
-}
-
-const bauCohort = {
-  customers: 6240,
-  revenue: 861120,
-  orders: 8174,
-}
+const creatorCustomers = 428
 
 const metrics: Metric[] = [
   {
@@ -78,7 +68,7 @@ const productHalo = {
 
 const revenuePerCustomer = metrics[0]
 const incrementalRevenue =
-  (revenuePerCustomer.creator - revenuePerCustomer.bau) * creatorCohort.customers
+  (revenuePerCustomer.creator - revenuePerCustomer.bau) * creatorCustomers
 const haloLift =
   productHalo.creatorRevenuePerCustomer / productHalo.bauRevenuePerCustomer
 
@@ -151,52 +141,8 @@ function App() {
             <span className="calculation-symbol">×</span>
             <div>
               <span>Creator customers</span>
-              <strong>{integer(creatorCohort.customers)}</strong>
+              <strong>{integer(creatorCustomers)}</strong>
             </div>
-          </div>
-        </section>
-
-        <section className="section cohort-context" aria-labelledby="cohort-context-heading">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">Cohort context</p>
-              <h2 id="cohort-context-heading">The audiences being compared</h2>
-            </div>
-            <span className="context-note">Totals describe scale—not performance</span>
-          </div>
-          <div className="cohort-cards">
-            <article className="cohort-card creator-card">
-              <div>
-                <span className="cohort-kicker">Creator-acquired cohort</span>
-                <strong>{integer(creatorCohort.customers)} customers</strong>
-              </div>
-              <dl>
-                <div>
-                  <dt>Total revenue</dt>
-                  <dd>{currency(creatorCohort.revenue)}</dd>
-                </div>
-                <div>
-                  <dt>Total orders</dt>
-                  <dd>{integer(creatorCohort.orders)}</dd>
-                </div>
-              </dl>
-            </article>
-            <article className="cohort-card">
-              <div>
-                <span className="cohort-kicker">BAU comparison pool</span>
-                <strong>{integer(bauCohort.customers)} customers</strong>
-              </div>
-              <dl>
-                <div>
-                  <dt>Total revenue</dt>
-                  <dd>{currency(bauCohort.revenue)}</dd>
-                </div>
-                <div>
-                  <dt>Total orders</dt>
-                  <dd>{integer(bauCohort.orders)}</dd>
-                </div>
-              </dl>
-            </article>
           </div>
         </section>
 
