@@ -25,9 +25,9 @@
 .brand {
   color: var(--ink);
   font-family: 'Instrument Sans', 'IBM Plex Sans', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.04em;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.045em;
   text-decoration: none;
 }
 
@@ -52,9 +52,9 @@
 }
 
 .header {
-  padding: 36px 0 8px;
+  padding: 22px 0 8px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 32px;
 }

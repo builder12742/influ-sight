@@ -116,12 +116,7 @@ function App() {
 
         <header className="header">
           <div>
-            <p className="eyebrow">Ambassador performance</p>
-            <h1>Your ambassadors cost real money.<br />Stop guessing what they’re worth.</h1>
-            <p className="subtitle">
-              Compare ambassador-acquired customers with your business-as-usual
-              customer baseline.
-            </p>
+            <h1>Stop guessing your influencer ROI.</h1>
           </div>
           <div className="report-period">
             <span>Analysis window</span>
