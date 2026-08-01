@@ -123,11 +123,10 @@
 }
 
 .hero {
-  padding: 34px 38px;
+  padding: 28px 32px 26px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
+  flex-direction: column;
+  gap: 22px;
   border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border));
   border-radius: 16px;
   background:
@@ -136,6 +135,18 @@
       color-mix(in srgb, var(--accent) 10%, var(--surface)) 0%,
       var(--surface) 70%
     );
+}
+
+.hero-top {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.hero-primary {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .hero-label {
@@ -158,6 +169,18 @@
   color: var(--accent);
 }
 
+.hero-window {
+  margin: 10px 0 0;
+  display: inline-flex;
+  padding: 4px 9px;
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--border));
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
 .hero-detail {
   margin: 14px 0 0;
   max-width: 32rem;
@@ -166,8 +189,145 @@
   color: var(--muted);
 }
 
+.roas-panel {
+  flex: 0 0 min(300px, 100%);
+  width: min(300px, 100%);
+  padding: 18px 18px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.roas-panel.is-positive {
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+}
+
+.roas-panel.is-negative {
+  border-color: color-mix(in srgb, #b45309 35%, var(--border));
+  background: color-mix(in srgb, #b45309 8%, var(--surface));
+}
+
+.roas-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.roas-label {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.roas-panel.is-positive .roas-label,
+.roas-panel.is-positive .roas-value,
+.roas-panel.is-positive .roas-direction {
+  color: var(--accent);
+}
+
+.roas-panel.is-negative .roas-label,
+.roas-panel.is-negative .roas-value,
+.roas-panel.is-negative .roas-direction {
+  color: #b45309;
+}
+
+.roas-direction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.roas-value {
+  margin: 8px 0 0;
+  font-family: 'Instrument Sans', 'IBM Plex Sans', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.roas-caption {
+  margin: 8px 0 0;
+  color: var(--ink);
+  font-size: 0.84rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.spend-field {
+  display: block;
+  margin-top: 14px;
+}
+
+.spend-field > span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.spend-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 11px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.spend-input-wrap > span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.spend-input-wrap input {
+  width: 100%;
+  padding: 10px 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.spend-field small {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
+
+.roas-formula {
+  margin: 12px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.4;
+}
+
 .hero-formula {
-  flex: 0 0 auto;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -175,6 +335,7 @@
 
 .hero-formula div {
   min-width: 128px;
+  flex: 1 1 0;
   padding: 14px;
   border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border));
   border-radius: 10px;
@@ -575,7 +736,16 @@ tbody td strong {
   }
 
   .hero {
-    padding: 28px 22px;
+    padding: 24px 18px;
+  }
+
+  .hero-top {
+    flex-direction: column;
+  }
+
+  .roas-panel {
+    width: 100%;
+    flex-basis: auto;
   }
 
   .hero-formula {
