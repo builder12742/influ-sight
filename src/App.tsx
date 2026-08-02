@@ -113,16 +113,10 @@ function App() {
         </nav>
 
         <header className="header">
-          <div>
-            <h1>
-              Stop guessing your influencer ROI. Start tracking it with
-              InfluSight.
-            </h1>
-          </div>
-          <div className="report-period">
-            <span>Analysis window</span>
-            <strong>Last 12 months</strong>
-          </div>
+          <h1>
+            Stop guessing your influencer ROI. Start tracking it with
+            InfluSight.
+          </h1>
         </header>
 
         <div className="sample-banner" role="status">

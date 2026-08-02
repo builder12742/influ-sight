@@ -15,7 +15,7 @@
 }
 
 .nav {
-  min-height: 72px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,9 +25,9 @@
 .brand {
   color: var(--ink);
   font-family: 'Instrument Sans', 'IBM Plex Sans', sans-serif;
-  font-size: 1.85rem;
+  font-size: clamp(2.15rem, 3.2vw, 2.55rem);
   font-weight: 700;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.05em;
   text-decoration: none;
 }
 
@@ -52,21 +52,19 @@
 }
 
 .header {
-  padding: 22px 0 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
+  padding: 28px 0 10px;
 }
 
 .header h1 {
   margin: 0;
-  max-width: 14em;
-  font-size: clamp(1.9rem, 3.8vw, 3.1rem);
+  max-width: none;
+  width: 100%;
+  font-size: clamp(2.15rem, 4.6vw, 3.55rem);
   font-weight: 600;
   letter-spacing: -0.045em;
-  line-height: 1.12;
+  line-height: 1.1;
   color: var(--ink);
+  text-wrap: balance;
 }
 
 .eyebrow {
@@ -84,30 +82,6 @@
   font-size: 1.05rem;
   line-height: 1.55;
   color: var(--muted);
-}
-
-.report-period {
-  flex: 0 0 auto;
-  padding: 10px 13px;
-  border: 1px solid var(--border);
-  border-radius: 9px;
-  background: var(--surface);
-}
-
-.report-period span,
-.report-period strong {
-  display: block;
-}
-
-.report-period span {
-  margin-bottom: 2px;
-  font-size: 0.68rem;
-  color: var(--muted);
-}
-
-.report-period strong {
-  font-size: 0.82rem;
-  font-weight: 600;
 }
 
 .sample-banner {
@@ -646,18 +620,13 @@ tbody td strong {
     padding: 0 16px 48px;
   }
 
-  .header,
+  .header {
+    padding-top: 24px;
+  }
+
   .hero {
     align-items: flex-start;
     flex-direction: column;
-  }
-
-  .header {
-    padding-top: 28px;
-  }
-
-  .report-period {
-    display: none;
   }
 
   .sample-banner {
