@@ -257,28 +257,35 @@ function App() {
                 of the store.
               </p>
             </div>
-            <div className="halo-bars" aria-label="Featured product vs rest of store">
-              <div className="bar-row">
+            <div className="halo-blocks" aria-label="Featured product vs rest of store">
+              <div className="block-row">
                 <div className="bar-label">
                   <span>Featured product</span>
                   <strong>+{featuredProductLift}%</strong>
                 </div>
-                <div className="bar-track">
-                  <span className="bar-fill creator-fill" style={{ width: '100%' }} />
+                <div
+                  className="block-track"
+                  role="img"
+                  aria-label={`${featuredProductLift}% represented as 4 filled blocks`}
+                >
+                  {Array.from({ length: 4 }, (_, index) => (
+                    <span key={index} className="unit-block is-featured" />
+                  ))}
                 </div>
               </div>
-              <div className="bar-row">
+              <div className="block-row">
                 <div className="bar-label">
                   <span>Rest of store</span>
                   <strong>+{restOfStoreLift}%</strong>
                 </div>
-                <div className="bar-track">
-                  <span
-                    className="bar-fill bau-fill"
-                    style={{
-                      width: `${(restOfStoreLift / featuredProductLift) * 100}%`,
-                    }}
-                  />
+                <div
+                  className="block-track"
+                  role="img"
+                  aria-label={`${restOfStoreLift}% represented as 2 filled blocks`}
+                >
+                  {Array.from({ length: 2 }, (_, index) => (
+                    <span key={index} className="unit-block is-store" />
+                  ))}
                 </div>
               </div>
             </div>

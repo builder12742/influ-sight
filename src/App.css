@@ -583,14 +583,19 @@ tbody td strong {
   line-height: 1.55;
 }
 
-.halo-bars {
+.halo-blocks {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
+.block-row {
+  display: flex;
+  flex-direction: column;
+}
+
 .bar-label {
-  margin-bottom: 7px;
+  margin-bottom: 8px;
   display: flex;
   justify-content: space-between;
   gap: 12px;
@@ -605,24 +610,25 @@ tbody td strong {
   font-variant-numeric: tabular-nums;
 }
 
-.bar-track {
-  height: 8px;
-  overflow: hidden;
-  border-radius: 999px;
-  background: #e9edf1;
+.block-track {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 18px;
 }
 
-.bar-fill {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
+.unit-block {
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  flex: 0 0 auto;
 }
 
-.creator-fill {
+.unit-block.is-featured {
   background: var(--accent);
 }
 
-.bau-fill {
+.unit-block.is-store {
   background: #aeb8c5;
 }
 
