@@ -52,18 +52,21 @@
 }
 
 .header {
-  padding: 28px 0 10px;
+  padding: 36px 0 18px;
+  display: flex;
+  justify-content: center;
 }
 
 .header h1 {
   margin: 0;
-  max-width: none;
+  max-width: 18em;
   width: 100%;
   font-size: clamp(2.15rem, 4.6vw, 3.55rem);
   font-weight: 600;
   letter-spacing: -0.045em;
-  line-height: 1.1;
+  line-height: 1.12;
   color: var(--ink);
+  text-align: center;
   text-wrap: balance;
 }
 
@@ -621,7 +624,7 @@ tbody td strong {
   }
 
   .header {
-    padding-top: 24px;
+    padding: 28px 0 14px;
   }
 
   .hero {
