@@ -61,17 +61,9 @@ const metrics: Metric[] = [
   },
 ]
 
-const productHalo = {
-  creatorRevenuePerCustomer: 64.5,
-  bauRevenuePerCustomer: 43,
-  creatorCrossCategoryRate: 29,
-  bauCrossCategoryRate: 17,
-  creatorProductsPurchased: 2.4,
-  bauProductsPurchased: 1.7,
-}
-
-const haloLift =
-  productHalo.creatorRevenuePerCustomer / productHalo.bauRevenuePerCustomer
+const featuredProductLift = 40
+const restOfStoreLift = 20
+const featuredVsStoreRatio = featuredProductLift / restOfStoreLift
 
 const currency = (n: number) =>
   new Intl.NumberFormat('en-US', {
@@ -247,27 +239,29 @@ function App() {
         <section className="section" aria-labelledby="halo-heading">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">Product halo</p>
-              <h2 id="halo-heading">Do creator customers explore the catalog?</h2>
+              <p className="eyebrow">Featured product lift</p>
+              <h2 id="halo-heading">
+                Did the featured product outperform the rest of the store?
+              </h2>
             </div>
           </div>
           <div className="halo-panel">
             <div className="halo-hero">
-              <span className="halo-value">{haloLift.toFixed(1)}×</span>
-              <strong>more non-promoted product revenue per customer</strong>
+              <span className="halo-value">{featuredVsStoreRatio.toFixed(0)}x</span>
+              <strong>
+                featured product lift vs. rest-of-store lift
+              </strong>
               <p>
-                Ambassador-acquired customers generated{' '}
-                {currency(productHalo.creatorRevenuePerCustomer)} per customer
-                outside promoted products, compared with{' '}
-                {currency(productHalo.bauRevenuePerCustomer)} for the average
-                customer.
+                Featured product saw a {featuredProductLift}% sales lift during
+                the campaign window, compared to {restOfStoreLift}% for the rest
+                of the store.
               </p>
             </div>
-            <div className="halo-bars" aria-label="Non-promoted revenue comparison">
+            <div className="halo-bars" aria-label="Featured product vs rest of store">
               <div className="bar-row">
                 <div className="bar-label">
-                  <span>Ambassador-acquired</span>
-                  <strong>{currency(productHalo.creatorRevenuePerCustomer)}</strong>
+                  <span>Featured product</span>
+                  <strong>+{featuredProductLift}%</strong>
                 </div>
                 <div className="bar-track">
                   <span className="bar-fill creator-fill" style={{ width: '100%' }} />
@@ -275,34 +269,23 @@ function App() {
               </div>
               <div className="bar-row">
                 <div className="bar-label">
-                  <span>Average customer</span>
-                  <strong>{currency(productHalo.bauRevenuePerCustomer)}</strong>
+                  <span>Rest of store</span>
+                  <strong>+{restOfStoreLift}%</strong>
                 </div>
                 <div className="bar-track">
-                  <span className="bar-fill bau-fill" style={{ width: `${(productHalo.bauRevenuePerCustomer / productHalo.creatorRevenuePerCustomer) * 100}%` }} />
+                  <span
+                    className="bar-fill bau-fill"
+                    style={{
+                      width: `${(restOfStoreLift / featuredProductLift) * 100}%`,
+                    }}
+                  />
                 </div>
               </div>
             </div>
-            <dl className="halo-stats">
-              <div>
-                <dt>Cross-category purchase rate</dt>
-                <dd>
-                  {productHalo.creatorCrossCategoryRate}%{' '}
-                  <span>vs {productHalo.bauCrossCategoryRate}% average</span>
-                </dd>
-              </div>
-              <div>
-                <dt>Distinct products purchased</dt>
-                <dd>
-                  {productHalo.creatorProductsPurchased}{' '}
-                  <span>vs {productHalo.bauProductsPurchased} average</span>
-                </dd>
-              </div>
-            </dl>
           </div>
           <p className="table-note">
-            “Non-promoted” excludes the product or category featured in the
-            attributed creator campaign. This is observed behavior, not proof of causation.
+            This is another directional signal, not proof of causation — useful
+            alongside the other metrics on this page, not a standalone conclusion.
           </p>
         </section>
 

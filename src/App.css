@@ -543,8 +543,8 @@ tbody td strong {
 .halo-panel {
   padding: 26px;
   display: grid;
-  grid-template-columns: 1.1fr 1fr 0.9fr;
-  gap: 32px;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 36px;
   align-items: center;
   border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--border));
   border-radius: 14px;
@@ -569,18 +569,18 @@ tbody td strong {
 
 .halo-hero > strong {
   display: block;
-  max-width: 260px;
+  max-width: 280px;
   color: var(--ink);
   font-size: 0.93rem;
   line-height: 1.35;
 }
 
 .halo-hero p {
-  margin: 10px 0 0;
-  max-width: 330px;
+  margin: 12px 0 0;
+  max-width: 360px;
   color: var(--muted);
-  font-size: 0.72rem;
-  line-height: 1.5;
+  font-size: 0.88rem;
+  line-height: 1.55;
 }
 
 .halo-bars {
@@ -600,7 +600,9 @@ tbody td strong {
 
 .bar-label strong {
   color: var(--ink);
-  font-size: 0.76rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
 .bar-track {
@@ -622,37 +624,6 @@ tbody td strong {
 
 .bau-fill {
   background: #aeb8c5;
-}
-
-.halo-stats {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.halo-stats div {
-  padding-left: 16px;
-  border-left: 2px solid color-mix(in srgb, var(--accent) 30%, var(--border));
-}
-
-.halo-stats dt {
-  margin-bottom: 4px;
-  color: var(--muted);
-  font-size: 0.67rem;
-}
-
-.halo-stats dd {
-  margin: 0;
-  color: var(--ink);
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.halo-stats dd span {
-  color: var(--muted);
-  font-size: 0.7rem;
-  font-weight: 400;
 }
 
 .cta {
