@@ -96,8 +96,6 @@ const formatDifference = (metric: Metric) => {
   return `+${percentageLift}%`
 }
 
-const CONTACT_EMAIL = 'hello@influ-sight.com'
-
 function App() {
   const isPositiveRoas = INCREMENTAL_ROAS >= 1
 
@@ -273,17 +271,6 @@ function App() {
             alongside the other metrics on this page, not a standalone conclusion.
           </p>
         </section>
-
-        <footer className="cta">
-          <div>
-            <p className="eyebrow">Your data, your answer</p>
-            <h2>Want to see what your ambassadors are actually worth?</h2>
-            <p>We’ll build this comparison from your sales and attribution data.</p>
-          </div>
-          <a className="cta-link" href={`mailto:${CONTACT_EMAIL}?subject=InfluSight%20cohort%20analysis`}>
-            Analyze my ambassador program
-          </a>
-        </footer>
       </div>
     </div>
   )

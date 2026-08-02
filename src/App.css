@@ -641,64 +641,13 @@ tbody td strong {
   font-variant-numeric: tabular-nums;
 }
 
-.cta {
-  margin-top: 20px;
-  padding: 28px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
-  border-radius: 14px;
-  background: var(--ink);
-  color: white;
-}
-
-.cta h2 {
-  margin: 0;
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  color: white;
-}
-
-.cta .eyebrow {
-  margin-bottom: 6px;
-  color: #7dd3c7;
-}
-
-.cta p {
-  margin: 7px 0 0;
-  font-size: 0.84rem;
-  line-height: 1.5;
-  color: #aeb6c3;
-}
-
-.cta-link {
-  flex: 0 0 auto;
-  display: inline-flex;
-  align-items: center;
-  padding: 11px 15px;
-  border-radius: 8px;
-  background: #fff;
-  color: var(--ink);
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: opacity 140ms ease;
-}
-
-.cta-link:hover {
-  opacity: 0.88;
-}
-
 @media (max-width: 720px) {
   .page {
     padding: 0 16px 48px;
   }
 
   .header,
-  .hero,
-  .cta {
+  .hero {
     align-items: flex-start;
     flex-direction: column;
   }
@@ -742,10 +691,6 @@ tbody td strong {
 
   .lift-cards {
     grid-template-columns: 1fr;
-  }
-
-  .cta {
-    padding: 24px;
   }
 }
 
