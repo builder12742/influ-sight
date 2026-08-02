@@ -114,7 +114,10 @@ function App() {
 
         <header className="header">
           <div>
-            <h1>Stop guessing your influencer ROI.</h1>
+            <h1>
+              Stop guessing your influencer ROI. Start tracking it with
+              InfluSight.
+            </h1>
           </div>
           <div className="report-period">
             <span>Analysis window</span>
