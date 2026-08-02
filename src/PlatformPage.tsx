@@ -128,10 +128,6 @@ function PlatformPage() {
               <p className="hero-label">Incremental Revenue</p>
               <p className="hero-value">+{currency(INCREMENTAL_REVENUE)}</p>
               <p className="hero-window">{ANALYSIS_WINDOW_LABEL}</p>
-              <p className="hero-detail">
-                Estimated additional revenue from influencer-acquired customers
-                after normalizing for cohort size.
-              </p>
             </div>
 
             <div
@@ -153,12 +149,6 @@ function PlatformPage() {
               </p>
             </div>
           </div>
-
-          <p className="roas-bridge">
-            Measuring exact ROI is hard. A single number doesn&apos;t capture the
-            full picture. Here&apos;s how influencer-acquired customers compare to
-            your average customer on the metrics that matter long term.
-          </p>
         </section>
 
         <section className="section comparison-section" aria-labelledby="comparison-heading">
