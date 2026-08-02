@@ -9,10 +9,10 @@ type Metric = {
   difference?: 'points'
 }
 
-/** Demo values for the Incremental Revenue / ROAS card */
+/** Demo values for the Incremental Revenue / ROI card */
 const INCREMENTAL_REVENUE = 400_000
-const AMBASSADOR_SPEND = 500_000
-const INCREMENTAL_ROAS = INCREMENTAL_REVENUE / AMBASSADOR_SPEND
+const INFLUENCER_SPEND = 500_000
+const INCREMENTAL_ROI = INCREMENTAL_REVENUE / INFLUENCER_SPEND
 const ANALYSIS_WINDOW_LABEL = '12-month window, Jan 1, 2025 – Dec 31, 2025'
 
 const metrics: Metric[] = [
@@ -97,7 +97,7 @@ const formatDifference = (metric: Metric) => {
 }
 
 function PlatformPage() {
-  const isPositiveRoas = INCREMENTAL_ROAS >= 1
+  const isPositiveRoi = INCREMENTAL_ROI >= 1
 
   return (
     <div className="page">
@@ -123,35 +123,35 @@ function PlatformPage() {
               <p className="hero-value">+{currency(INCREMENTAL_REVENUE)}</p>
               <p className="hero-window">{ANALYSIS_WINDOW_LABEL}</p>
               <p className="hero-detail">
-                Estimated additional revenue from creator-acquired customers
+                Estimated additional revenue from influencer-acquired customers
                 after normalizing for cohort size.
               </p>
             </div>
 
             <div
-              className={`roas-panel${isPositiveRoas ? ' is-positive' : ' is-negative'}`}
-              aria-label="Incremental ROAS"
+              className={`roas-panel${isPositiveRoi ? ' is-positive' : ' is-negative'}`}
+              aria-label="Incremental ROI"
             >
               <div className="roas-panel-header">
-                <p className="roas-label">Incremental ROAS</p>
+                <p className="roas-label">Incremental ROI</p>
                 <span className="roas-direction" aria-hidden="true">
-                  {isPositiveRoas ? '↑' : '↓'}
+                  {isPositiveRoi ? '↑' : '↓'}
                 </span>
               </div>
-              <p className="roas-value">{INCREMENTAL_ROAS.toFixed(1)}x</p>
+              <p className="roas-value">{INCREMENTAL_ROI.toFixed(1)}x</p>
               <p className="roas-caption">
-                {currencyCompact(INCREMENTAL_ROAS)} back for every $1 spent
+                {currencyCompact(INCREMENTAL_ROI)} back for every $1 spent
               </p>
               <p className="spend-static">
-                Ambassador spend: {currency(AMBASSADOR_SPEND)}
+                Influencer spend: {currency(INFLUENCER_SPEND)}
               </p>
             </div>
           </div>
 
           <p className="roas-bridge">
-            Measuring exact ROI is hard. A single ROAS number doesn&apos;t capture
-            the full picture. Here&apos;s how ambassador-acquired customers compare
-            to your average customer on the metrics that matter long term.
+            Measuring exact ROI is hard. A single number doesn&apos;t capture the
+            full picture. Here&apos;s how influencer-acquired customers compare to
+            your average customer on the metrics that matter long term.
           </p>
         </section>
 
@@ -168,7 +168,7 @@ function PlatformPage() {
               <thead>
                 <tr>
                   <th scope="col">Metric</th>
-                  <th scope="col">Ambassador-acquired</th>
+                  <th scope="col">Influencer-acquired</th>
                   <th scope="col">Average customer</th>
                   <th scope="col">Difference</th>
                 </tr>
@@ -204,7 +204,7 @@ function PlatformPage() {
                 </header>
                 <dl className="metric-card-values">
                   <div>
-                    <dt>Ambassador-acquired</dt>
+                    <dt>Influencer-acquired</dt>
                     <dd>{formatMetric(metric.creator, metric.format)}</dd>
                   </div>
                   <div>
@@ -217,7 +217,7 @@ function PlatformPage() {
             ))}
           </div>
           <p className="table-note">
-            Average customer includes non-ambassador new customers acquired
+            Average customer includes non-influencer new customers acquired
             during the same period. Repeat-purchase AOV only includes customers
             who returned; repeat revenue per customer accounts for the full cohort.
           </p>
