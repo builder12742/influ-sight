@@ -583,53 +583,62 @@ tbody td strong {
   line-height: 1.55;
 }
 
-.halo-blocks {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.block-row {
-  display: flex;
-  flex-direction: column;
-}
-
-.bar-label {
-  margin-bottom: 8px;
-  display: flex;
-  justify-content: space-between;
+.lift-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
-  color: var(--muted);
-  font-size: 0.7rem;
+  align-self: stretch;
 }
 
-.bar-label strong {
-  color: var(--ink);
-  font-size: 0.84rem;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-}
-
-.block-track {
+.lift-card {
   display: flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 18px;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 132px;
+  padding: 18px 18px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
 }
 
-.unit-block {
-  width: 18px;
-  height: 18px;
-  border-radius: 3px;
-  flex: 0 0 auto;
+.lift-card.is-featured {
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
 }
 
-.unit-block.is-featured {
-  background: var(--accent);
+.lift-card.is-store {
+  border-color: var(--border);
+  background: rgba(255, 255, 255, 0.88);
 }
 
-.unit-block.is-store {
-  background: #aeb8c5;
+.lift-card-label {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.lift-card.is-featured .lift-card-label,
+.lift-card.is-featured .lift-card-value {
+  color: var(--accent);
+}
+
+.lift-card.is-store .lift-card-label {
+  color: var(--muted);
+}
+
+.lift-card.is-store .lift-card-value {
+  color: var(--ink);
+}
+
+.lift-card-value {
+  margin: 10px 0 0;
+  font-family: 'Instrument Sans', 'IBM Plex Sans', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .cta {
@@ -729,6 +738,10 @@ tbody td strong {
     padding: 22px;
     grid-template-columns: 1fr;
     gap: 28px;
+  }
+
+  .lift-cards {
+    grid-template-columns: 1fr;
   }
 
   .cta {
