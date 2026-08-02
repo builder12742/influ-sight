@@ -109,6 +109,12 @@ function PlatformPage() {
             Stop guessing your influencer ROI. Start tracking it with
             InfluSight.
           </h1>
+          <p className="header-subhead">
+            One ROI number can&apos;t tell you the whole story. InfluSight shows
+            you exactly how your influencer-acquired customers behave differently
+            than your non-influencer customers, so you can give your leadership a
+            straight answer on whether your partnerships are working.
+          </p>
         </header>
 
         <div className="sample-banner" role="status">
