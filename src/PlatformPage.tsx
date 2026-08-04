@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import SiteNav from './SiteNav'
 
 type Metric = {
@@ -98,6 +100,14 @@ const formatDifference = (metric: Metric) => {
 
 function PlatformPage() {
   const isPositiveRoi = INCREMENTAL_ROI >= 1
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.hash !== '#why-influ-sight') return
+    const target = document.getElementById('why-influ-sight')
+    if (!target) return
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, [location.hash])
 
   return (
     <div className="page">
@@ -255,6 +265,49 @@ function PlatformPage() {
             This is another directional signal, not proof of causation — useful
             alongside the other metrics on this page, not a standalone conclusion.
           </p>
+        </section>
+
+        <section
+          className="section why-section"
+          id="why-influ-sight"
+          aria-labelledby="why-heading"
+        >
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">FAQ</p>
+              <h2 id="why-heading">Why brands use InfluSight</h2>
+            </div>
+          </div>
+
+          <div className="faq-list">
+            <details className="faq-item" open>
+              <summary>How does InfluSight measure ROI?</summary>
+              <p>
+                [Placeholder] InfluSight compares influencer-acquired customers
+                to your average customers on revenue, repeat behavior, and related
+                quality metrics — then connects that to your influencer spend.
+              </p>
+            </details>
+            <details className="faq-item">
+              <summary>What data do I need to get started?</summary>
+              <p>
+                [Placeholder] Typically a sales export plus influencer attribution
+                (promo codes, links, or UTM tags). No software install required for
+                an initial analysis.
+              </p>
+            </details>
+            <details className="faq-item">
+              <summary>
+                Is this different from what my influencer platform already shows
+                me?
+              </summary>
+              <p>
+                [Placeholder] Most platforms report clicks, reach, and attributed
+                sales. InfluSight focuses on whether those customers are more
+                valuable over time than the rest of your base.
+              </p>
+            </details>
+          </div>
         </section>
       </div>
     </div>

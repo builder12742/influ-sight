@@ -19,7 +19,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
   border-bottom: 1px solid var(--border);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  min-width: 0;
 }
 
 .brand {
@@ -29,24 +37,26 @@
   font-weight: 700;
   letter-spacing: -0.05em;
   text-decoration: none;
+  flex: 0 0 auto;
 }
 
 .brand span {
   color: var(--accent);
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
 .nav-meta {
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-left: auto;
   font-size: 0.82rem;
   color: var(--muted);
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 18px;
 }
 
 .nav-link {
@@ -54,6 +64,7 @@
   font-size: 0.9rem;
   font-weight: 500;
   text-decoration: none;
+  white-space: nowrap;
   transition: color 140ms ease;
 }
 
@@ -641,6 +652,63 @@ tbody td strong {
   font-variant-numeric: tabular-nums;
 }
 
+.why-section {
+  scroll-margin-top: 24px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: '+';
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.faq-item[open] summary::after {
+  content: '–';
+}
+
+.faq-item p {
+  margin: 0;
+  padding: 0 20px 18px;
+  max-width: 46rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 .about {
   padding: 36px 0 24px;
 }
@@ -704,6 +772,18 @@ tbody td strong {
 @media (max-width: 720px) {
   .page {
     padding: 0 16px 48px;
+  }
+
+  .nav-left {
+    gap: 14px;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-link {
+    font-size: 0.82rem;
   }
 
   .header {
