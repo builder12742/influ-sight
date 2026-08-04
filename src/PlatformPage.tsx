@@ -110,10 +110,10 @@ function PlatformPage() {
             InfluSight.
           </h1>
           <p className="header-subhead">
-            One ROI number can&apos;t tell you the whole story. InfluSight shows
-            you exactly how your influencer-acquired customers behave differently
-            than your non-influencer customers, so you can give your leadership a
-            straight answer on whether your partnerships are working.
+            One ROI number can&apos;t tell you the whole story. InfluSight&apos;s
+            analytics uncovers the unique value of your influencer-acquired
+            customers, so you can stand behind your influencer spend to
+            leadership.
           </p>
         </header>
 
