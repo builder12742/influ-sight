@@ -4,9 +4,8 @@ import headshot from './assets/BrettGutermanHeadshot.jpeg'
 function AboutPage() {
   return (
     <div className="page">
+      <SiteNav />
       <div className="shell">
-        <SiteNav />
-
         <article className="about">
           <div className="about-layout">
             <div className="about-copy">

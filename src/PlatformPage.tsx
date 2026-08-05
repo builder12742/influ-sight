@@ -111,9 +111,8 @@ function PlatformPage() {
 
   return (
     <div className="page">
+      <SiteNav />
       <div className="shell">
-        <SiteNav />
-
         <header className="header">
           <h1>
             Stop guessing your influencer ROI. Start tracking it with
