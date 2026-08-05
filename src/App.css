@@ -90,7 +90,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
+}
+
+.header-kicker {
+  margin: 0;
+  max-width: 44rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.55;
+  text-align: center;
+  text-wrap: pretty;
 }
 
 .header h1 {
@@ -107,7 +119,7 @@
 }
 
 .header-subhead {
-  margin: 0;
+  margin: 2px 0 0;
   max-width: 42rem;
   color: var(--muted);
   font-size: clamp(0.98rem, 1.5vw, 1.12rem);

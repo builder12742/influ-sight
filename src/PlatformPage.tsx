@@ -115,6 +115,12 @@ function PlatformPage() {
         <SiteNav showDemoBadge />
 
         <header className="header">
+          <p className="header-kicker">
+            InfluSight is an influencer analytics company that uncovers real ROI
+            across your trackable touchpoints, comparing influencer and
+            non-influencer customers to show exactly how influencer spend impacts
+            your bottom line.
+          </p>
           <h1>
             Stop guessing your influencer ROI. Start tracking it with
             InfluSight.
