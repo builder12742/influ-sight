@@ -51,6 +51,9 @@
   letter-spacing: -0.05em;
   text-decoration: none;
   flex: 0 0 auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
 }
 
 .brand span {

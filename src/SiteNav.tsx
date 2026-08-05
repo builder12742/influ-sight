@@ -1,20 +1,41 @@
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { useRef } from 'react'
+
+function scrollWindowToTop() {
+  const top = 0
+  const left = 0
+
+  window.scrollTo(top, left)
+  window.scrollTo({ top, left, behavior: 'auto' })
+
+  if (document.scrollingElement) {
+    document.scrollingElement.scrollTop = top
+  }
+
+  document.documentElement.scrollTop = top
+  document.body.scrollTop = top
+}
 
 function SiteNav() {
   const location = useLocation()
   const navigate = useNavigate()
+  const handledByTouchRef = useRef(false)
   const whyActive =
     location.pathname === '/' && location.hash === '#why-influ-sight'
 
-  const goHome = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault()
-
+  const goHome = () => {
     if (location.pathname !== '/' || location.hash) {
       navigate('/')
     }
 
+    scrollWindowToTop()
+
+    // Mobile Safari often needs a deferred retry after navigation / paint.
     window.requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+      scrollWindowToTop()
+      window.setTimeout(scrollWindowToTop, 0)
+      window.setTimeout(scrollWindowToTop, 50)
+      window.setTimeout(scrollWindowToTop, 150)
     })
   }
 
@@ -27,7 +48,23 @@ function SiteNav() {
               className="brand"
               to="/"
               aria-label="InfluSight home"
-              onClick={goHome}
+              onClick={(event) => {
+                event.preventDefault()
+                event.stopPropagation()
+
+                if (handledByTouchRef.current) {
+                  handledByTouchRef.current = false
+                  return
+                }
+
+                goHome()
+              }}
+              onTouchEnd={(event) => {
+                // Explicit touch path for mobile Safari same-route cases.
+                event.preventDefault()
+                handledByTouchRef.current = true
+                goHome()
+              }}
             >
               Influ<span>Sight</span>
             </Link>

@@ -110,7 +110,12 @@ function PlatformPage() {
       return
     }
 
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    window.scrollTo(0, 0)
+    if (document.scrollingElement) {
+      document.scrollingElement.scrollTop = 0
+    }
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
   }, [location.pathname, location.hash, location.key])
 
   return (
