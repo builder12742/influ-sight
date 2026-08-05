@@ -281,30 +281,25 @@ function PlatformPage() {
 
           <div className="faq-list">
             <details className="faq-item" open>
-              <summary>How does InfluSight measure ROI?</summary>
+              <summary>Did you know you can produce an influencer ROI?</summary>
               <p>
-                [Placeholder] InfluSight compares influencer-acquired customers
-                to your average customers on revenue, repeat behavior, and related
-                quality metrics — then connects that to your influencer spend.
-              </p>
-            </details>
-            <details className="faq-item">
-              <summary>What data do I need to get started?</summary>
-              <p>
-                [Placeholder] Typically a sales export plus influencer attribution
-                (promo codes, links, or UTM tags). No software install required for
-                an initial analysis.
+                Yes! If you&apos;re tracking influencer partnerships through promo
+                codes or referral links, you already have what you need to
+                calculate a real ROI number. We do that calculation for you, fast
+                and accurately, then go further than a single number to show you
+                the full picture.
               </p>
             </details>
             <details className="faq-item">
               <summary>
-                Is this different from what my influencer platform already shows
-                me?
+                Did you know not all customers are created equal?
               </summary>
               <p>
-                [Placeholder] Most platforms report clicks, reach, and attributed
-                sales. InfluSight focuses on whether those customers are more
-                valuable over time than the rest of your base.
+                Also yes! This is the core of our method. We compare
+                influencer-referred customers to non-influencer customers to
+                triangulate the full value of your partnerships, looking at basket
+                value, repeat behavior, and product growth, not just one metric in
+                isolation.
               </p>
             </details>
           </div>
