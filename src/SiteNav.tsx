@@ -1,10 +1,6 @@
 import { Link, NavLink, useLocation } from 'react-router-dom'
 
-type SiteNavProps = {
-  showDemoBadge?: boolean
-}
-
-function SiteNav({ showDemoBadge = false }: SiteNavProps) {
+function SiteNav() {
   const location = useLocation()
   const whyActive =
     location.pathname === '/' && location.hash === '#why-influ-sight'
@@ -41,12 +37,6 @@ function SiteNav({ showDemoBadge = false }: SiteNavProps) {
           </NavLink>
         </div>
       </div>
-      {showDemoBadge ? (
-        <div className="nav-meta">
-          <span className="status-dot" aria-hidden="true" />
-          Demo store
-        </div>
-      ) : null}
     </nav>
   )
 }

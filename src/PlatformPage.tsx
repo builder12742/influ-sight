@@ -112,7 +112,7 @@ function PlatformPage() {
   return (
     <div className="page">
       <div className="shell">
-        <SiteNav showDemoBadge />
+        <SiteNav />
 
         <header className="header">
           <h1>
