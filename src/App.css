@@ -656,53 +656,30 @@ tbody td strong {
   scroll-margin-top: 24px;
 }
 
-.faq-list {
+.why-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.faq-item {
+.why-item {
+  padding: 20px 22px;
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--surface);
-  overflow: hidden;
 }
 
-.faq-item summary {
-  list-style: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 18px 20px;
+.why-item h3 {
+  margin: 0;
   color: var(--ink);
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: -0.02em;
+  line-height: 1.35;
 }
 
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq-item summary::after {
-  content: '+';
-  flex: 0 0 auto;
-  color: var(--muted);
-  font-size: 1.2rem;
-  font-weight: 400;
-  line-height: 1;
-}
-
-.faq-item[open] summary::after {
-  content: '–';
-}
-
-.faq-item p {
-  margin: 0;
-  padding: 0 20px 18px;
+.why-item p {
+  margin: 10px 0 0;
   max-width: 46rem;
   color: var(--muted);
   font-size: 0.95rem;
