@@ -274,7 +274,7 @@ function PlatformPage() {
         >
           <div className="section-heading">
             <div>
-              <p className="eyebrow">How it works</p>
+              <p className="eyebrow">The Method</p>
               <h2 id="why-heading">Why brands use InfluSight</h2>
             </div>
           </div>
