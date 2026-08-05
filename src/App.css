@@ -16,6 +16,7 @@
 }
 
 .nav-sticky {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -847,10 +848,6 @@ tbody td strong {
 
   .metric-cards {
     display: flex;
-  }
-
-  .page {
-    overflow-x: hidden;
   }
 
   .matched-badge {
