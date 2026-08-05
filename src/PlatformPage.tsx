@@ -129,10 +129,10 @@ function PlatformPage() {
           </h1>
           <p className="header-subhead">
             One ROI number can&apos;t tell you the whole story. InfluSight is an
-            influencer analytics platform that uncovers real ROI across your
-            trackable touchpoints, comparing influencer and non-influencer
-            customers so you can stand behind your influencer spend to
-            leadership.
+            influencer analytics platform for e-commerce businesses that uncovers
+            real ROI across your trackable touchpoints, comparing influencer and
+            non-influencer customers so you can stand behind your influencer spend
+            to leadership.
           </p>
         </header>
 
