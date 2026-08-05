@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import SiteNav from './SiteNav'
 
@@ -102,12 +102,16 @@ function PlatformPage() {
   const isPositiveRoi = INCREMENTAL_ROI >= 1
   const location = useLocation()
 
-  useEffect(() => {
-    if (location.hash !== '#why-influ-sight') return
-    const target = document.getElementById('why-influ-sight')
-    if (!target) return
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }, [location.hash])
+  useLayoutEffect(() => {
+    if (location.hash === '#why-influ-sight') {
+      document
+        .getElementById('why-influ-sight')
+        ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      return
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [location.pathname, location.hash, location.key])
 
   return (
     <div className="page">
