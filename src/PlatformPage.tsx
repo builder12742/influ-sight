@@ -115,20 +115,15 @@ function PlatformPage() {
         <SiteNav showDemoBadge />
 
         <header className="header">
-          <p className="header-kicker">
-            InfluSight is an influencer analytics company that uncovers real ROI
-            across your trackable touchpoints, comparing influencer and
-            non-influencer customers to show exactly how influencer spend impacts
-            your bottom line.
-          </p>
           <h1>
             Stop guessing your influencer ROI. Start tracking it with
             InfluSight.
           </h1>
           <p className="header-subhead">
-            One ROI number can&apos;t tell you the whole story. InfluSight&apos;s
-            analytics uncovers the unique value of your influencer-acquired
-            customers, so you can stand behind your influencer spend to
+            One ROI number can&apos;t tell you the whole story. InfluSight is an
+            influencer analytics platform that uncovers real ROI across your
+            trackable touchpoints, comparing influencer and non-influencer
+            customers so you can stand behind your influencer spend to
             leadership.
           </p>
         </header>
